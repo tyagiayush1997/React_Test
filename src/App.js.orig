@@ -1,0 +1,82 @@
+import React, { Component } from 'react';
+<<<<<<< HEAD
+import logo from './logo.svg';
+import './App.css';
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            Edit <code>src/App.js</code> and save to reload.
+          </p>
+          <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Learn React
+          </a>
+        </header>
+      </div>
+=======
+import './App.css';
+import Person from './Person/Person';
+
+class App extends Component {
+  state = {
+    persons : [
+      {name:"alpha",age:"23"},
+      {name:"beta",age:"29"},
+      {name:"theta",age:"21"}
+    ]
+  }
+
+
+  switchEventHandler = (newName) => {
+  //  console.log("called");
+  this.setState({
+    persons : [
+      {name:newName,age:"23"},
+      {name:"beta",age:"29"},
+      {name:"theta",age:"21"}
+    ]
+  })
+  }
+
+  nameChangeHandler = (event) => {
+  //  console.log("called");
+  this.setState({
+    persons : [
+      {name:"max",age:"23"},
+      {name:event.target.value,age:"29"},
+      {name:"theta",age:"21"}
+    ]
+  })
+  }
+  render() {
+    const style = {
+      backgroundColor : 'white',
+      font : 'inherit',
+      border: '1px solid blue',
+      padding : '8px'
+    }
+    return (
+      <div className="App">
+        <h1> Hi , I am here</h1>
+        <p>This is really working</p>
+        <button style = {style} onClick={() => this.switchEventHandler('Maximilian')}>Switch name</button>
+        <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
+        <Person name={this.state.persons[1].name} age={this.state.persons[1].age} click={this.switchEventHandler.bind(this ,'max')} change={this.nameChangeHandler}>My hobby is eating </Person>
+        <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
+      </div>
+      //React.createElement('div',{className:'App'},React.createElement('h1',null,'Hi I\'am Here'))
+>>>>>>> 02fcfeef20a368a20445da829c387e3a8f69639e
+    );
+  }
+}
+
+export default App;
